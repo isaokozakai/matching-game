@@ -9,12 +9,11 @@ let count = 0;
 const NUMBER_OF_CARDS = 20
 const CARD_TYPES = NUMBER_OF_CARDS / 2;
 
-window.onload = function () {
+window.onload = () => {
   let arr = [];
 
   for (let i = 0; i < CARD_TYPES; i++) {
-    arr.push(i);
-    arr.push(i);
+    arr.push(i, i);
   }
 
   shuffle(arr);
@@ -27,7 +26,7 @@ window.onload = function () {
     div.className = 'card back';
     div.index = i;
     div.number = arr[i];
-    div.innerHTML = '';
+    div.isBack = true;
     div.onclick = turn;
     panel.appendChild(div);
     cards.push(div);
@@ -41,26 +40,59 @@ window.onload = function () {
 
 }
 
-function shuffle(arr) {
-  let n = arr.length;
-  let i;
-  while (n) {
-    i = Math.floor(Math.random() * n--);
-    [arr[n], arr[i]] = [arr[i], arr[n]];
+const shuffle = (arr) => {
+  let m = arr.length;
+  while (m) {
+    const i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
   }
   return arr;
-}
+};
 
 // when a card is clicked
-function turn(e) {
-
+const turn = (e) => {
   let div = e.target;
 
   if (backTimer) return;
 
-  if (div.innerHTML == '') {
-    div.className = 'card';
-    div.innerHTML = div.number;
+  if (div.isBack) {
+    let addClasName = '';
+    switch (div.number) {
+      case 0:
+        addClasName = 'grizzly';
+        break;
+      case 1:
+        addClasName = 'hippo';
+        break;
+      case 2:
+        addClasName = 'rhino';
+        break;
+      case 3:
+        addClasName = 'lynx';
+        break;
+      case 4:
+        addClasName = 'beaver';
+        break;
+      case 5:
+        addClasName = 'pangolin';
+        break;
+      case 6:
+        addClasName = 'kangaroo';
+        break;
+      case 7:
+        addClasName = 'koala';
+        break;
+      case 8:
+        addClasName = 'gorilla';
+        break;
+      case 9:
+        addClasName = 'polar-bear';
+        break;
+      default:
+        break;
+    }
+    div.className = 'card ' + addClasName;
+    div.isBack = false;
   } else {
     return;
   }
@@ -69,12 +101,11 @@ function turn(e) {
   if (isFirstCard) {
     firstCard = div;
     isFirstCard = false;
-
     // the case for the second card
   } else {
     if (firstCard.number == div.number) {
       count++;
-      backTimer = setTimeout(function () {
+      backTimer = setTimeout(() => {
         div.className = 'card finish';
         firstCard.className = 'card finish';
         backTimer = NaN;
@@ -83,11 +114,11 @@ function turn(e) {
         }
       }, 500)
     } else {
-      backTimer = setTimeout(function () {
+      backTimer = setTimeout(() => {
         div.className = 'card back';
-        div.innerHTML = '';
+        div.isBack = true;
         firstCard.className = 'card back';
-        firstCard.innerHTML = '';
+        firstCard.isBack = true;
         firstCard = null;
         backTimer = NaN;
       }, 500);
@@ -97,11 +128,11 @@ function turn(e) {
   }
 }
 
-function startTimer() {
+const startTimer = () => {
   timer = setInterval(showSecond, 1000);
 }
 
-function showSecond() {
+const showSecond = () => {
   let nowTime = new Date();
   let elapsedTime = Math.floor((nowTime - startTime) / 1000);
   let str = elapsedTime + ' seconds have elapsed';

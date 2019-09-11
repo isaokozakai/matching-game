@@ -1,24 +1,17 @@
-* {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 #panel {
-  width: 310px;
-  height: 340px;
+  width: 500px;
+  height: 540px;
   overflow: hidden;
 }
 
 .card {
-  width: 60px;
-  height: 80px;
-  line-height: 80px;
+  width: 90px;
+  height: 130px;
+  line-height: 130px;
   border: 1px solid silver;
   border-radius: 10px;
   text-align: center;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   box-shadow: gray 2px 2px;
   background: white;
@@ -27,9 +20,78 @@
 }
 
 .back {
-  background-color: black;
-  /* background-image: url('img/back.png'); */
-  /* background-size: 60px 80px; */
+  background-image: url(../images/back.jpg);
+  background-size: cover;
+}
+
+.grizzly {
+  background-image: url(../images/grizzly.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.hippo {
+  background-image: url(../images/hippo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.rhino {
+  background-image: url(../images/rhino.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.lynx {
+  background-image: url(../images/lynx.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.beaver {
+  background-image: url(../images/beaver.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.pangolin {
+  background-image: url(../images/pangolin.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.kangaroo {
+  background-image: url(../images/kangaroo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.koala {
+  background-image: url(../images/koala.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.gorilla {
+  background-image: url(../images/gorilla.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.polar-bear {
+  background-image: url(../images/polar-bear.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .finish {
