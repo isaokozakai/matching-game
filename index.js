@@ -38,7 +38,7 @@ window.onload = () => {
   // start the timer
   startTimer();
 
-}
+};
 
 const shuffle = (arr) => {
   let m = arr.length;
@@ -140,11 +140,11 @@ const turn = (e) => {
 
     isFirstCard = true;
   }
-}
+};
 
 const startTimer = () => {
   timer = setInterval(showSecond, 1000);
-}
+};
 
 const showSecond = () => {
   let nowTime = new Date();
@@ -153,4 +153,4 @@ const showSecond = () => {
 
   let re = document.getElementById('result');
   re.innerHTML = str;
-}
+};
