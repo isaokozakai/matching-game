@@ -8,37 +8,69 @@ let firstCard;
 let count = 0;
 const NUMBER_OF_CARDS = 24
 const CARD_TYPES = NUMBER_OF_CARDS / 2;
+const images = [
+  '../images/back.jpg',
+  '../images/grizzly.jpg',
+  '../images/hippo.jpg',
+  '../images/rhino.jpg',
+  '../images/lynx.jpg',
+  '../images/beaver.jpg',
+  '../images/pangolin.jpg',
+  '../images/kangaroo.jpg',
+  '../images/koala.jpg',
+  '../images/gorilla.jpg',
+  '../images/polar-bear.jpg',
+  '../images/moose.jpg',
+  '../images/japanese-macaque.jpg'
+];
 
 window.onload = () => {
-  let arr = [];
+  let loadedcount = 0;
+  let loadingImg = document.getElementById('loading');
+  // preload the images
+  for (i = 0; i < images.length; i++) {
+    let img = document.createElement('img');
+    img.src = images[i];
+    img.onload = () => {
+      loadedcount++;
 
-  for (let i = 0; i < CARD_TYPES; i++) {
-    arr.push(i, i);
+      if (loadedcount == images.length) {
+        loadingImg.remove();
+        initialize();
+      }
+    }
+  };
+
+  const initialize = () => {
+    let arr = [];
+
+    for (let i = 0; i < CARD_TYPES; i++) {
+      arr.push(i, i);
+    }
+
+    shuffle(arr);
+
+    let panel = document.getElementById('left-panel');
+
+    // create div elements
+    for (i = 0; i < NUMBER_OF_CARDS; i++) {
+      let div = document.createElement('div');
+      div.className = 'card back';
+      div.index = i;
+      div.number = arr[i];
+      div.isBack = true;
+      div.onclick = turn;
+      panel.appendChild(div);
+      cards.push(div);
+    }
+
+    // get the starting time
+    startTime = new Date();
+
+    // start the timer
+    startTimer();
   }
-
-  shuffle(arr);
-
-  let panel = document.getElementById('left-panel');
-
-  // create div elements
-  for (i = 0; i < NUMBER_OF_CARDS; i++) {
-    let div = document.createElement('div');
-    div.className = 'card back';
-    div.index = i;
-    div.number = arr[i];
-    div.isBack = true;
-    div.onclick = turn;
-    panel.appendChild(div);
-    cards.push(div);
-  }
-
-  // get the starting time
-  startTime = new Date();
-
-  // start the timer
-  startTimer();
-
-};
+}
 
 const shuffle = (arr) => {
   let m = arr.length;
