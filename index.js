@@ -126,7 +126,7 @@ const turn = (e) => {
         if (count == CARD_TYPES) {
           clearInterval(timer);
         }
-      }, 500)
+      }, 500);
     } else {
       backTimer = setTimeout(() => {
         div.className = 'card back';
