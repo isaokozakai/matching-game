@@ -6,7 +6,7 @@ let backTimer;
 let isFirstCard = true;
 let firstCard;
 let count = 0;
-const NUMBER_OF_CARDS = 20
+const NUMBER_OF_CARDS = 24
 const CARD_TYPES = NUMBER_OF_CARDS / 2;
 
 window.onload = () => {
@@ -18,7 +18,7 @@ window.onload = () => {
 
   shuffle(arr);
 
-  let panel = document.getElementById('panel');
+  let panel = document.getElementById('left-panel');
 
   // create div elements
   for (i = 0; i < NUMBER_OF_CARDS; i++) {
@@ -55,38 +55,44 @@ const turn = (e) => {
 
   if (backTimer) return;
 
+  let addClasName = '';
   if (div.isBack) {
-    let addClasName = '';
     switch (div.number) {
       case 0:
-        addClasName = 'grizzly';
+        addClasName = 'front1';
         break;
       case 1:
-        addClasName = 'hippo';
+        addClasName = 'front2';
         break;
       case 2:
-        addClasName = 'rhino';
+        addClasName = 'front3';
         break;
       case 3:
-        addClasName = 'lynx';
+        addClasName = 'front4';
         break;
       case 4:
-        addClasName = 'beaver';
+        addClasName = 'front5';
         break;
       case 5:
-        addClasName = 'pangolin';
+        addClasName = 'front6';
         break;
       case 6:
-        addClasName = 'kangaroo';
+        addClasName = 'front7';
         break;
       case 7:
-        addClasName = 'koala';
+        addClasName = 'front8';
         break;
       case 8:
-        addClasName = 'gorilla';
+        addClasName = 'front9';
         break;
       case 9:
-        addClasName = 'polar-bear';
+        addClasName = 'front10';
+        break;
+      case 10:
+        addClasName = 'front11';
+        break;
+      case 11:
+        addClasName = 'front12';
         break;
       default:
         break;
@@ -109,6 +115,14 @@ const turn = (e) => {
         div.className = 'card finish';
         firstCard.className = 'card finish';
         backTimer = NaN;
+
+        let panel = document.getElementById('right-panel');
+        for (let i = 0; i < 2; i++) {
+          let matchedCardDiv = document.createElement('div');
+          matchedCardDiv.index = i;
+          matchedCardDiv.className = 'card ' + addClasName;
+          panel.appendChild(matchedCardDiv);
+        }
         if (count == CARD_TYPES) {
           clearInterval(timer);
         }

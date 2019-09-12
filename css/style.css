@@ -1,7 +1,12 @@
-#panel {
-  width: 500px;
+#container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.panel {
+  width: 590px;
   height: 540px;
-  overflow: hidden;
 }
 
 .card {
@@ -25,44 +30,52 @@
   background-image: url(../images/back.jpg);
 }
 
-.grizzly {
+.front1 {
   background-image: url(../images/grizzly.jpg);
 }
 
-.hippo {
+.front2 {
   background-image: url(../images/hippo.jpg);
 }
 
-.rhino {
+.front3 {
   background-image: url(../images/rhino.jpg);
 }
 
-.lynx {
+.front4 {
   background-image: url(../images/lynx.jpg);
 }
 
-.beaver {
+.front5 {
   background-image: url(../images/beaver.jpg);
 }
 
-.pangolin {
+.front6 {
   background-image: url(../images/pangolin.jpg);
 }
 
-.kangaroo {
+.front7 {
   background-image: url(../images/kangaroo.jpg);
 }
 
-.koala {
+.front8 {
   background-image: url(../images/koala.jpg);
 }
 
-.gorilla {
+.front9 {
   background-image: url(../images/gorilla.jpg);
 }
 
-.polar-bear {
+.front10 {
   background-image: url(../images/polar-bear.jpg);
+}
+
+.front11 {
+  background-image: url(../images/moose.jpg);
+}
+
+.front12 {
+  background-image: url(../images/japanese-macaque.jpg);
 }
 
 .finish {
