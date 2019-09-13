@@ -96,7 +96,7 @@
 }
 
 .finish {
-  opacity: 0;
+  visibility: hidden;
   cursor: default;
 }
 

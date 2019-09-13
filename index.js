@@ -26,10 +26,12 @@ const images = [
 
 const leftPanel = document.getElementById('left-panel');
 const rightPanel = document.getElementById('right-panel');
+const button = document.getElementById('reset');
 
 window.onload = () => {
   let loadedcount = 0;
   let loadingImg = document.getElementById('loading');
+  button.style.visibility = 'hidden';
   // preload the images
   for (i = 0; i < images.length; i++) {
     let img = document.createElement('img');
@@ -39,13 +41,13 @@ window.onload = () => {
 
       if (loadedcount == images.length) {
         loadingImg.remove();
+        button.style.visibility = 'visible';
         initialize();
       }
     }
   };
 
   const setResetButton = () => {
-    let button = document.getElementById('reset');
     button.onclick = () => {
       while (leftPanel.lastChild) {
         leftPanel.removeChild(leftPanel.lastChild);
