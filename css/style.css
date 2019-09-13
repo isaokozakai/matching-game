@@ -14,20 +14,28 @@
 }
 
 .panel {
-  width: 590px;
-  height: 540px;
+  width: 520px;
+  height: 500px;
+}
+
+#reset {
+  margin-top: 4px;
+  padding: 4px 9px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  background-color: gray;
 }
 
 .card {
-  width: 90px;
-  height: 130px;
+  width: 80px;
+  height: 120px;
   margin: 1px;
-  line-height: 130px;
   border: 1px solid silver;
   border-radius: 6px;
-  font-size: 30px;
   box-shadow: gray 2px 2px;
-  background: white;
   float: left;
   cursor: pointer;
   background-size: cover;
@@ -93,6 +101,6 @@
 }
 
 #result {
-  font-size: 1.2rem;
+  font-size: 20px;
   font-weight: bold;
 }

@@ -24,6 +24,9 @@ const images = [
   '../images/japanese-macaque.jpg'
 ];
 
+const leftPanel = document.getElementById('left-panel');
+const rightPanel = document.getElementById('right-panel');
+
 window.onload = () => {
   let loadedcount = 0;
   let loadingImg = document.getElementById('loading');
@@ -41,6 +44,20 @@ window.onload = () => {
     }
   };
 
+  const setResetButton = () => {
+    let button = document.getElementById('reset');
+    button.onclick = () => {
+      while (leftPanel.lastChild) {
+        leftPanel.removeChild(leftPanel.lastChild);
+      }
+      while (rightPanel.lastChild) {
+        rightPanel.removeChild(rightPanel.lastChild);
+      }
+      count = 0;
+      initialize();
+    };
+  };
+
   const initialize = () => {
     let arr = [];
 
@@ -50,7 +67,7 @@ window.onload = () => {
 
     shuffle(arr);
 
-    let panel = document.getElementById('left-panel');
+    setResetButton();
 
     // create div elements
     for (i = 0; i < NUMBER_OF_CARDS; i++) {
@@ -60,7 +77,7 @@ window.onload = () => {
       div.number = arr[i];
       div.isBack = true;
       div.onclick = turn;
-      panel.appendChild(div);
+      leftPanel.appendChild(div);
       cards.push(div);
     }
 
@@ -148,12 +165,11 @@ const turn = (e) => {
         firstCard.className = 'card finish';
         backTimer = NaN;
 
-        let panel = document.getElementById('right-panel');
         for (let i = 0; i < 2; i++) {
           let matchedCardDiv = document.createElement('div');
           matchedCardDiv.index = i;
           matchedCardDiv.className = 'card ' + addClasName;
-          panel.appendChild(matchedCardDiv);
+          rightPanel.appendChild(matchedCardDiv);
         }
         if (count == CARD_TYPES) {
           clearInterval(timer);
