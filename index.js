@@ -83,6 +83,8 @@ window.onload = () => {
       cards.push(div);
     }
 
+    setImage('back', images[0]);
+
     // get the starting time
     startTime = new Date();
 
@@ -107,48 +109,16 @@ const turn = (e) => {
   if (backTimer) return;
 
   let addClasName = '';
+  let image = '';
   if (div.isBack) {
-    switch (div.number) {
-      case 0:
-        addClasName = 'front1';
-        break;
-      case 1:
-        addClasName = 'front2';
-        break;
-      case 2:
-        addClasName = 'front3';
-        break;
-      case 3:
-        addClasName = 'front4';
-        break;
-      case 4:
-        addClasName = 'front5';
-        break;
-      case 5:
-        addClasName = 'front6';
-        break;
-      case 6:
-        addClasName = 'front7';
-        break;
-      case 7:
-        addClasName = 'front8';
-        break;
-      case 8:
-        addClasName = 'front9';
-        break;
-      case 9:
-        addClasName = 'front10';
-        break;
-      case 10:
-        addClasName = 'front11';
-        break;
-      case 11:
-        addClasName = 'front12';
-        break;
-      default:
-        break;
+    for (let i = 0; i < CARD_TYPES; i++) {
+      if (div.number == i) {
+        addClasName = 'front' + (i + 1);
+        image = images[i + 1];
+      }
     }
     div.className = 'card ' + addClasName;
+    setImage(addClasName, image);
     div.isBack = false;
   } else {
     return;
@@ -172,6 +142,7 @@ const turn = (e) => {
           matchedCardDiv.index = i;
           matchedCardDiv.className = 'card ' + addClasName;
           rightPanel.appendChild(matchedCardDiv);
+          setImage(addClasName, image);
         }
         if (count == CARD_TYPES) {
           clearInterval(timer);
@@ -184,11 +155,19 @@ const turn = (e) => {
         firstCard.className = 'card back';
         firstCard.isBack = true;
         firstCard = null;
+        setImage('back', images[0]);
         backTimer = NaN;
       }, 500);
     }
 
     isFirstCard = true;
+  }
+};
+
+const setImage = (className, image) => {
+  let elements = document.getElementsByClassName(className);
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].setAttribute("style", `background-image: url(${image})`);
   }
 };
 

@@ -43,58 +43,6 @@
   background-position: center center;
 }
 
-.back {
-  background-image: url(../images/back.jpg);
-}
-
-.front1 {
-  background-image: url(../images/grizzly.jpg);
-}
-
-.front2 {
-  background-image: url(../images/hippo.jpg);
-}
-
-.front3 {
-  background-image: url(../images/rhino.jpg);
-}
-
-.front4 {
-  background-image: url(../images/lynx.jpg);
-}
-
-.front5 {
-  background-image: url(../images/beaver.jpg);
-}
-
-.front6 {
-  background-image: url(../images/pangolin.jpg);
-}
-
-.front7 {
-  background-image: url(../images/kangaroo.jpg);
-}
-
-.front8 {
-  background-image: url(../images/koala.jpg);
-}
-
-.front9 {
-  background-image: url(../images/gorilla.jpg);
-}
-
-.front10 {
-  background-image: url(../images/polar-bear.jpg);
-}
-
-.front11 {
-  background-image: url(../images/moose.jpg);
-}
-
-.front12 {
-  background-image: url(../images/japanese-macaque.jpg);
-}
-
 .finish {
   visibility: hidden;
   cursor: default;
