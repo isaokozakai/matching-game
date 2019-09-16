@@ -142,8 +142,8 @@ const turn = (e) => {
           matchedCardDiv.index = i;
           matchedCardDiv.className = 'card ' + addClasName;
           rightPanel.appendChild(matchedCardDiv);
-          setImage(addClasName, image);
         }
+        setImage(addClasName, image);
         if (count == CARD_TYPES) {
           clearInterval(timer);
         }
