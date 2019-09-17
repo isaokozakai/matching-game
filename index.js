@@ -167,7 +167,7 @@ const turn = (e) => {
 const setImage = (className, image) => {
   let elements = document.getElementsByClassName(className);
   for (let i = 0; i < elements.length; i++) {
-    elements[i].setAttribute("style", `background-image: url(${image})`);
+    elements[i].style.backgroundImage = `url(${image})`;
   }
 };
 
