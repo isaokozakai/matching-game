@@ -9,19 +9,19 @@ let count = 0;
 const NUMBER_OF_CARDS = 24
 const CARD_TYPES = NUMBER_OF_CARDS / 2;
 const images = [
-  '../images/back.jpg',
-  '../images/grizzly.jpg',
-  '../images/hippo.jpg',
-  '../images/rhino.jpg',
-  '../images/lynx.jpg',
-  '../images/beaver.jpg',
-  '../images/pangolin.jpg',
-  '../images/kangaroo.jpg',
-  '../images/koala.jpg',
-  '../images/gorilla.jpg',
-  '../images/polar-bear.jpg',
-  '../images/moose.jpg',
-  '../images/japanese-macaque.jpg'
+  'images/back.jpg',
+  'images/grizzly.jpg',
+  'images/hippo.jpg',
+  'images/rhino.jpg',
+  'images/lynx.jpg',
+  'images/beaver.jpg',
+  'images/pangolin.jpg',
+  'images/kangaroo.jpg',
+  'images/koala.jpg',
+  'images/gorilla.jpg',
+  'images/polar-bear.jpg',
+  'images/moose.jpg',
+  'images/japanese-macaque.jpg'
 ];
 
 const leftPanel = document.getElementById('left-panel');
