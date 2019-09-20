@@ -45,7 +45,7 @@ window.onload = () => {
         initialize();
       }
     }
-  };
+  }
 
   const setResetButton = () => {
     button.onclick = () => {
