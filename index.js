@@ -1,5 +1,3 @@
-let cards = [];
-
 let startTime;
 let timer;
 let backTimer;
@@ -80,7 +78,6 @@ window.onload = () => {
       div.isBack = true;
       div.onclick = turn;
       leftPanel.appendChild(div);
-      cards.push(div);
     }
 
     setImage('back', images[0]);
